@@ -5,7 +5,7 @@ import { BackFutureModule } from './back-future/back-future.module';
 import { BackFutureComponent } from './back-future/back-future.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ModulesRoutingModule,
     BackFutureModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ]
 })
 export class ModulesModule { }

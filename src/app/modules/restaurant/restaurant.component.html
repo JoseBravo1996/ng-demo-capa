@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="tipoMercaderiaResponse">
   <div class="row mt-3">
     <div class="col pt-3">
       <form class="form-inline" [formGroup]="form">
@@ -9,12 +9,10 @@
           <div class="form-group">
             <label>Tipo</label>
           <select class="form-control ml-1 mr-3" formControlName="tipo">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
+            <option value="" disabled>Selecciona el tipo</option>
+            <option *ngFor="let item of tipoMercaderiaResponse" [ngValue]="item.id">{{item.descripcion}}</option>
+         </select>
+
           </div>
         <div class="form-group">
           <label>Precio</label>
@@ -28,12 +26,21 @@
           <label>Preparación</label>
           <input type="text" class="form-control ml-1 mr-3" formControlName="preparacion" placeholder="Ingresa la Preparación">
         </div>
-        <div class="form-group pt-3">
-          <label>Imagen</label>
-          <input type="text" class="form-control ml-1 mr-3" formControlName="imagen" placeholder="Ingresa el link a la imagen">
-        </div>
       </form>
-      <button class="btn btn-primary" [disabled]="this.form.invalid" (click)="Save()">Guardar</button>
+      <button class="btn btn-primary" [disabled]="this.form.invalid" (click)="save()">Guardar</button>
     </div>
   </div>
+  <div class="row mt-3" [formGroup]="formSearch">
+    <div class="input-group">
+      <div class="form-outline">
+        <input type="number" class="form-control" formControlName="search" />
+      </div>
+      <button type="button" class="btn btn-primary" (click)="searchMercaderias(formSearch.controls.search.value)">Buscar</button>
+    </div>
+    <div class="card border-success mb-3 mt-3" style="max-width: 18rem;" *ngIf="mercaderia">
+        <div class="card-header">{{mercaderia.nombre}} - {{mercaderia.tipo}}</div>
+        <div class="card-body">{{mercaderia.precio}}</div>
+    </div>
+  </div>
+
 </div>
