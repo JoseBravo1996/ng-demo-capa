@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { OfiTelegrafoService } from '../services/ofi-telegrafo.service';
 
 @Component({
   selector: 'app-marty',
@@ -11,7 +12,7 @@ export class MartyComponent implements OnInit {
   messageToDoc: string;
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private ofiTelegrafoService: OfiTelegrafoService) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -19,10 +20,13 @@ export class MartyComponent implements OnInit {
     })
   }
 
-  sendMessage(event){
+  sendMessage(event) {
+    this.ofiTelegrafoService.send(event);
+    this.form.reset();
   }
 
   viewMessage() {
+    this.ofiTelegrafoService.telegrafista$.subscribe(msj => this.messageToDoc = msj);
   }
 
 }
