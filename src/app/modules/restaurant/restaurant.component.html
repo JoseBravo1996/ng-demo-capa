@@ -39,7 +39,7 @@
     </div>
     <div class="card border-success mb-3 mt-3" style="max-width: 18rem;" *ngIf="mercaderia">
         <div class="card-header">{{mercaderia.nombre}} - {{mercaderia.tipo}}</div>
-        <div class="card-body">{{mercaderia.precio}}</div>
+        <div class="card-body">${{mercaderia.precio}}</div>
     </div>
   </div>
 
