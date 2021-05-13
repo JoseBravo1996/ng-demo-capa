@@ -1,3 +1,4 @@
+import { RestaurantComponent } from './restaurant/restaurant.component';
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -7,6 +8,10 @@ const routes: Routes = [
   {
     path:'future',
     component: BackFutureComponent
+  },
+  {
+    path:'restaurant',
+    component: RestaurantComponent
   }
 ];
 

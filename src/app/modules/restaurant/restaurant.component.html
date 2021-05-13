@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col pt-3">
+      <form class="form-inline" [formGroup]="form">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" class="form-control mr-3" formControlName="nombre" placeholder="Ingresa el nombre">
+        </div>
+          <div class="form-group">
+            <label>Tipo</label>
+          <select class="form-control ml-1 mr-3" formControlName="tipo">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          </div>
+        <div class="form-group">
+          <label>Precio</label>
+          <input type="number" class="form-control ml-1 mr-3" formControlName="precio" placeholder="Ingresa el precio">
+        </div>
+        <div class="form-group">
+          <label>Ingredientes</label>
+          <input type="text" class="form-control ml-1 mr-3" formControlName="ingredientes" placeholder="Ingresa los ingredientes">
+        </div>
+        <div class="form-group pt-3">
+          <label>Preparación</label>
+          <input type="text" class="form-control ml-1 mr-3" formControlName="preparacion" placeholder="Ingresa la Preparación">
+        </div>
+        <div class="form-group pt-3">
+          <label>Imagen</label>
+          <input type="text" class="form-control ml-1 mr-3" formControlName="imagen" placeholder="Ingresa el link a la imagen">
+        </div>
+      </form>
+      <button class="btn btn-primary" [disabled]="this.form.invalid" (click)="Save()">Guardar</button>
+    </div>
+  </div>
+</div>
