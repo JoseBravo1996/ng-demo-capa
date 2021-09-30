@@ -17,7 +17,7 @@ export class RestaurantComponent implements OnInit {
   public mercaderia: Mercaderia;
 
   constructor(private formBuilder: FormBuilder, private restaurantService: RestaurantService) {
-
+    //this.tipoMercaderiaResponse = this.restaurantService.readTipoMercaderia();
     this.restaurantService.readTipoMercaderia().subscribe(resp => {
       this.tipoMercaderiaResponse = resp;
     });
@@ -40,7 +40,7 @@ export class RestaurantComponent implements OnInit {
     this.form.controls['tipo'].valueChanges.subscribe(
       resp => {
         this.form.controls['tipo'].setValue(resp);
-    });
+      });
 
   }
 
@@ -52,16 +52,15 @@ export class RestaurantComponent implements OnInit {
     mercaderia.ingredientes = this.form.get('ingredientes').value;
     mercaderia.preparacion = this.form.get('preparacion').value;
     mercaderia.imagen = 'No tiene';
-    this.restaurantService.postMercaderia(mercaderia);
+    this.restaurantService.postMercaderia(mercaderia).subscribe(resp => console.log(resp));
   }
 
-  searchMercaderias(event){
+  searchMercaderias(event) {
     this.restaurantService.readMercaderia(event).subscribe(
-      resp =>
-      {
-          this.mercaderia = resp;
+      resp => {
+        this.mercaderia = resp;
       },
-      error => { console.log(error) } );
+      error => { console.log(error) });
   }
 
 }
