@@ -1,3 +1,4 @@
+import { ProductosModule } from './productos/productos.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,7 +15,8 @@ import { CommunicationModule } from './communication/communication.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CommunicationModule
+    CommunicationModule,
+    ProductosModule
   ],
   providers: [],
   bootstrap: [AppComponent]
