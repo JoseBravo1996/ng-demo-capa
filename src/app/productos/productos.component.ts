@@ -19,9 +19,9 @@ export class ProductosComponent implements OnInit {
   initForm() {
     this.formProductos = this.formBuild.group({
       nombre: ['', [Validators.required, Validators.maxLength(20)]],
-      precio: [0, [Validators.required, Validators.min(0), Validators.max(100000)]],
+      precio: ['', [Validators.required, Validators.min(1), Validators.max(10000)]],
       descripcion: ['', [Validators.required, Validators.maxLength(20)]],
-      stock: [0, [Validators.required, Validators.min(0), Validators.max(100)]]
+      stock: ['', [Validators.required, Validators.min(0), Validators.max(100)]]
     });
   }
 
