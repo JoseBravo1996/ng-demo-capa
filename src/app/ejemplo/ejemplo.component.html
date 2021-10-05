@@ -1,0 +1,41 @@
+<p>ejemplo works! {{nombre}}</p>
+<div class="container">
+    <div class="row">
+        <div *ngIf="!existeEdad">
+            Hola Gente
+        </div>
+    </div>
+    <div class="row">
+        <div *ngFor="let item of listProductos">
+            <p>{{item}}</p>
+        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listProductos; let i = index">
+                <th>{{i + 1}}</th>
+                <th scope="row">{{item}}</th>
+              </tr>
+            </tbody>
+        </table>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listObjectProductos">
+                <th>{{ item.id }}</th>
+                <th scope="row">{{item.nombre}}</th>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

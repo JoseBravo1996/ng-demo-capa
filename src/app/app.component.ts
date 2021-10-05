@@ -10,12 +10,13 @@ import { Frase } from './models/frase';
 })
 export class AppComponent {
 
+  // variables
   frase: Frase;
-
   title = 'Capacitacion Angular';
   numero = "1";
   mostrar: boolean = true;
 
+ // metodos ciclo de vida de angular
 
 
 
@@ -29,6 +30,10 @@ export class AppComponent {
     this.frase.nombre = "Jose";
     this.frase.numero = 11;
   }
+
+  
+
+  // Metodos 
 
   personajes: string[] = ['Marty', 'Doc', 'Biff'];
 }

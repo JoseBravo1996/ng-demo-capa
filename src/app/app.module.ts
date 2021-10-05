@@ -8,11 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
-import { TareaComponent } from './tarea/tarea.component';
+import { EjemploModule } from './ejemplo/ejemplo.module';
 @NgModule({
   declarations: [
-    AppComponent,
-    TareaComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +19,8 @@ import { TareaComponent } from './tarea/tarea.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    EjemploModule
   ],
   providers: [],
   bootstrap: [AppComponent]

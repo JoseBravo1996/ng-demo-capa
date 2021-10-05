@@ -35,9 +35,9 @@
       <hr>
       <mat-card *ngIf="mostrar">
         <div class="card-body">
-          <p>{{frase.autor}}</p>
+          <p>{{frase.nombre}}</p>
 
-          <p>{{frase.mensaje}}</p>
+          <p>{{frase.numero}}</p>
         </div>
       </mat-card>
 
@@ -56,6 +56,6 @@
 {{this.frase.nombre}}
 {{this.frase.numero}}
 {{personajes | json}}
-<app-tarea></app-tarea>
 
+<app-ejemplo></app-ejemplo>
 <router-outlet></router-outlet>
