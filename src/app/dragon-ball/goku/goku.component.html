@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Componente Padre Goku</h2>
+            <input #inputGoku type="text" (keyup)="enviarMensaje(inputGoku.value)" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <p *ngIf="recibirEnergia">Estoy recibiendo energia</p>
+    </div>
+    <div class="col-md-4">
+        <app-gohan [recibirMensajeDeGoku]="mensajeDeGoku" (energia)="obtenerEnergia($event)"></app-gohan>
+    </div>
+</div>
