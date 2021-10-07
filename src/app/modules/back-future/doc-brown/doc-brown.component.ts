@@ -1,9 +1,9 @@
-import { Subscription } from 'rxjs';
+import { of, Subscription } from 'rxjs';
 import { OfiTelegrafoService } from './../services/ofi-telegrafo.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-
-@Component({
+import { filter, map } from 'rxjs/operators'
+ @Component({
   selector: 'app-doc-brown',
   templateUrl: './doc-brown.component.html',
   styleUrls: ['./doc-brown.component.scss']
@@ -25,6 +25,8 @@ export class DocBrownComponent implements OnInit, OnDestroy {
     this.form = this.formBuilder.group({
       controlDoc: new FormControl()
     })
+
+    this.viewMessage();
   }
 
   sendMessage(event){
@@ -33,6 +35,10 @@ export class DocBrownComponent implements OnInit, OnDestroy {
   }
 
   viewMessage() {
-    this.suscription = this.ofiTelegrafoService.telegrafista$.subscribe(msj => this.messageToMarty = msj);
+    var lista = of(1,2,3,4)
+    var dato = lista.pipe(filter(x => { return x == 2}));
+    dato.subscribe(x => console.log(x));
+    // console.log(dato);
+    this.suscription = this.ofiTelegrafoService.telegrafista$.pipe(map(x => this.messageToMarty = 'Hola ' + x )).subscribe(x => this.messageToMarty = x);
   }
 }

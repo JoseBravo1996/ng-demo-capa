@@ -11,7 +11,7 @@ export class OfiTelegrafoService {
 
   constructor() { }
 
-  send(message){
+  send(message: string){
     this.telegrafista.next(message);
   }
 }
